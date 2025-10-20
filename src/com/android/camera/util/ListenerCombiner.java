@@ -103,15 +103,15 @@ public class ListenerCombiner<Input extends Enum<Input>> {
         }
     }
 
-    public ListenerCombiner(Class<Input> clazz, StateChangeListener listener) {
-        this(clazz);
+    public ListenerCombiner(Class<Input> clazz, Input[] inputValues, StateChangeListener listener) {
+        this(clazz, inputValues);
         addListener(listener);
     }
 
-    public ListenerCombiner(Class<Input> clazz) {
+    public ListenerCombiner(Class<Input> clazz, Input[] inputValues) {
         mInputs = new EnumMap<Input, Boolean>(clazz);
 
-        for (Input i : clazz.getEnumConstants()) {
+        for (Input i : inputValues) {
             mInputs.put(i, false);
         }
 

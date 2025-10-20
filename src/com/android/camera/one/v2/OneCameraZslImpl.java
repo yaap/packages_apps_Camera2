@@ -224,7 +224,9 @@ public class OneCameraZslImpl extends AbstractOneCamera {
      */
     private final ListenerCombiner<ReadyStateRequirement>
             mReadyStateManager = new ListenerCombiner<ReadyStateRequirement>(
-                    ReadyStateRequirement.class, new ListenerCombiner.StateChangeListener() {
+                    ReadyStateRequirement.class,
+                    ReadyStateRequirement.values(),
+                    new ListenerCombiner.StateChangeListener() {
                             @Override
                         public void onStateChange(boolean state) {
                             broadcastReadyState(state);
